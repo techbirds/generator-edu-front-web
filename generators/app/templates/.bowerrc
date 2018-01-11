@@ -1,0 +1,13 @@
+{
+    "directory": "./src/lib",
+    "storage": {
+        "packages" : "./src/lib/.cache"
+    },
+    "timeout": 300000,
+    "registry": {
+        "search": [
+            "https://registry.bower.io",
+            "http://59.111.98.233:5678/"
+        ]
+    }
+}

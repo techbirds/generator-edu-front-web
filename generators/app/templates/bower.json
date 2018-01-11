@@ -1,0 +1,21 @@
+{
+    "name": "edu-lib",
+    "authors": [
+      "edu <edu@corp.netease.com>"
+    ],
+    "version": "0.0.1",
+    "license": "MIT",
+    "ignore": [
+      "**/.*",
+      "node_modules",
+      "bower_components",
+      "src/lib",
+      "test",
+      "tests"
+    ],
+    "dependencies": {
+      "regularjs": "0.5.1",
+      "nej": "0.4.6"
+    }
+  }
+  

@@ -1,0 +1,34 @@
+{
+    "name": "<%= project_name %>",
+    "version": "1.0.0",
+    "description": "<%= project_desc %>",
+    "author": "<%= project_author %>",
+    "scripts": {
+        "init": "bower install && npm install",
+        "css": "gulp watch:scss -p admin -p lib -p js --silent",
+        "server": "nei server -o ./ --reload false --port 5000 --name app -mo -i ./nei.config.js -d l.icourse163.org",
+        "build": "rm -rf mock && rm -rf nei.[0-9]* && nei build -k e8da121142a64c3ac1832cdc60591e20",
+        "update": "nei update -w true",
+        "dev": "npm run css & npm run server",
+        "deploy": "rm -rf pub && rm -rf deploy/*.log && nej build release.dev.conf",
+        "start": "npm run dev"
+    },
+    "devDependencies": {
+        "gulp": "^3.9.1",
+        "gulp-sass": "^2.2.0",
+        "gulp-scss": "^1.3.17",
+        "colors": "^1.1.2",
+        "yargs": "^4.6.0",
+        "nej": "^1.6.3",
+        "nej-mocha": "^4.2.6"
+    },
+    "engines": {
+        "node": ">= 4.0.0",
+        "npm": ">= 3.0.0"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not ie <= 8"
+    ]
+}

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project [<!ENTITY buildfile SYSTEM "file:./build-user.xml">]>
+<project basedir="." default="deploy" name="study">
+       <script language="javascript">
+		<![CDATA[
+			importClass(java.io.File)
+			var path = new File(basedir).getAbsolutePath();
+			project.setProperty("ob_baseline.dir", path);	
+		]]>
+	</script>
+   <property name="baseline.dir" value="${ob_baseline.dir}"/>
+	<property environment="env"/>
+	<property name="compress.dir" value="compressed"/>
+    <property name="nej-build.js" value="/home/omad/node_modules/nej/bin/build.js"/>
+	<target name="clean">	
+		<delete dir="${compress.dir}"/>
+	</target>
+    
+    <target name="del-names">
+        <delete file="${baseline.dir}/tools/publish/names.txt"/>
+    </target>
+	<target name="ugly_loop_nej_build">
+		<echo message="begin nej-build ..."/>
+		<exec dir="." executable="${nej-build.js}" failonerror="true">
+			<arg line="${ob_baseline.dir}/deploy/admin/release.conf"/>
+		</exec>
+	</target>
+
+<property name="cp2pubu.dir" value="compressed/pub/u"/>
+
+	<target name="cp">
+        <copy todir="${compress.dir}" overwrite="true">
+             <fileset dir="${ob_baseline.dir}">
+                <include name="pub/" />
+                <include name="res/" />
+             </fileset>
+        </copy>
+    </target>
+
+    <target name="cp2pub">
+        <copy todir="${cp2pubu.dir}" overwrite="true">
+             <fileset dir="${ob_baseline.dir}">
+                <include name="node_modules/@study/" />
+             </fileset>
+        </copy>
+    </target>
+
+    <target name="build_style">
+        <echo message="begin build_style..."/>
+        <exec dir="." executable="gulp" failonerror="true">
+            <arg line="scss"/>
+        </exec>
+    </target>
+
+
+    <target name="cnpm_install">
+        <echo message="begin cnpm_install..."/>
+        <exec dir="." executable="cnpm" failonerror="true">
+            <arg line="--registry=http://rnpm.hz.netease.com/ --registryweb=http://npm.hz.netease.com/ --cache=/home/omad/.nenpm/.cache --userconfig=/home/omad/.nenpmrc install --production"/>
+        </exec>
+    </target>
+
+	<target name="deploy">
+        <antcall target="clean"/>
+		<antcall target="ugly_loop_nej_build" />
+		<antcall target="cp"/>
+	</target>
+</project>
