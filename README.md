@@ -1,9 +1,7 @@
 
 # Edu-Front-Web :dog:
 
- [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
-
-> 基于对云课堂、中国慕课、爱多思以及通用组件池等的前端架构和设计理念的理解和实践希望沉淀出一套足够通用、简约、易于上手的前端工程脚手架。
+> 基于对云课堂、中国慕课、爱多思以及通用组件池等的前端架构和设计理念的理解和实践希望沉淀出一套足够通用、简约、易于上手的教育前端Web工程脚手架。
 
 ## 安装
 
@@ -63,11 +61,3 @@ npm run deploy
 * [Edu Awesome](https://github.com/techbirds/edu-awesome)
 * [加速electron在国内的下载速度](http://blog.tomyail.com/install-electron-slow-in-china/)
 
-[npm-image]: https://badge.fury.io/js/generator-edu-front-web.svg
-[npm-url]: https://npmjs.org/package/generator-edu-front-web
-[travis-image]: https://travis-ci.org/techbirds/generator-edu-front-web.svg?branch=master
-[travis-url]: https://travis-ci.org/techbirds/generator-edu-front-web
-[daviddm-image]: https://david-dm.org/techbirds/generator-edu-front-web.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/techbirds/generator-edu-front-web
-[coveralls-image]: https://coveralls.io/repos/techbirds/generator-edu-front-web/badge.svg
-[coveralls-url]: https://coveralls.io/r/techbirds/generator-edu-front-web
