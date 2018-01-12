@@ -1,32 +1,71 @@
-# generator-edu-front-web [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> 
 
-## Installation
+# Edu-Front-Web :dog:
 
-First, install [Yeoman](http://yeoman.io) and generator-edu-front-web using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+ [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 
-```bash
+> 基于对云课堂、中国慕课、爱多思以及通用组件池等的前端架构和设计理念的理解和实践希望沉淀出一套足够通用、简约、易于上手的前端工程脚手架。
+
+## 技术架构
+
+![path](./generators/app/templates/doc/images/Architecture.png)
+
+### 工程目录
+
+```
+├── deploy
+├── doc
+├── res
+├── src
+│   ├── lib
+│   └── pages
+│       ├── demo1       # Regular Module 
+│       └── demo2       # NEJ Module
+├── template
+│   ├── demo1.ftl
+│   ├── demo2.ftl
+│   └── index.ftl
+└── test
+├── .bowerrc
+├── .gitignore
+├── .editorconfig
+├── .eslintrc.json
+├── nei.config.js
+├── gulpfile.js
+├── bower.json
+├── package.json
+├── README.md
+```
+
+## 安装
+
+``` bash
+npm install "techbirds/nei-toolkit#edu-fmpp" -g
 npm install -g yo
 npm install -g generator-edu-front-web
 ```
 
-Then generate your new project:
+## 使用
+
+![path](./generators/app/templates/doc/images/screenshot.png)
+
+[terminal demo](https://asciinema.org/a/VEUpB9cm1NB9muUItnfNgGUlT)
+
+## 开发
 
 ```bash
-yo edu-front-web
+
+# 1. 开发 & 实时编译
+npm run dev
+
+# 2. 打包
+npm run deploy
+
 ```
 
-## Getting To Know Yeoman
+## FAQ
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
-
-## License
-
-MIT © [dong.wang]()
-
+* [Edu Awesome](https://github.com/techbirds/edu-awesome)
+* [加速electron在国内的下载速度](http://blog.tomyail.com/install-electron-slow-in-china/)
 
 [npm-image]: https://badge.fury.io/js/generator-edu-front-web.svg
 [npm-url]: https://npmjs.org/package/generator-edu-front-web
