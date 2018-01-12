@@ -1,15 +1,19 @@
 
 # Edu-Front-Web :dog:
 
- [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+ [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
 
 > 基于对云课堂、中国慕课、爱多思以及通用组件池等的前端架构和设计理念的理解和实践希望沉淀出一套足够通用、简约、易于上手的前端工程脚手架。
 
-## 技术架构
+## 安装
 
-![path](./generators/app/templates/doc/images/Architecture.png)
+``` bash
+npm install "techbirds/nei-toolkit#edu-fmpp" -g
+npm install -g yo
+npm install -g generator-edu-front-web
+```
 
-### 工程目录
+## 工程目录
 
 ```
 ├── deploy
@@ -36,19 +40,11 @@
 ├── README.md
 ```
 
-## 安装
-
-``` bash
-npm install "techbirds/nei-toolkit#edu-fmpp" -g
-npm install -g yo
-npm install -g generator-edu-front-web
-```
-
 ## 使用
 
-![path](./generators/app/templates/doc/images/screenshot.png)
+<a href="https://asciinema.org/a/VEUpB9cm1NB9muUItnfNgGUlT" target="_blank">terminal demo</a>
 
-[terminal demo](https://asciinema.org/a/VEUpB9cm1NB9muUItnfNgGUlT)
+![path](./generators/app/templates/doc/images/screenshot.png)
 
 ## 开发
 
