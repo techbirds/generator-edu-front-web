@@ -8,10 +8,17 @@ const spawn = require('yeoman-generator/lib/actions/spawn-command');
 const commandExists = require('command-exists').sync;
 
 module.exports = class extends Generator {
+
+  initializing() {
+    this.composeWith(
+      require.resolve('generator-edu-front-base/generators/app')
+    );
+  }
+
   prompting() {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the stupendous ' + chalk.red('generator-edu-front-web') + ' generator!'
+      'Welcome to the stupendous ' + chalk.green('generator-edu-front-web') + ' generator!'
     ));
 
     var prompts = [{
@@ -145,29 +152,26 @@ module.exports = class extends Generator {
   }
 
   install() {
-    // at least one
+    // // at least one
     var self = this;
 
     this.installDependencies({
       yarn: false,
       npm: true,
-      bower: false
+      bower: true
     }).then(function () {
 
       // 检测NEI是否安装
       if (commandExists('nei')) {
-        spawn.spawnCommand('npm', ['run', 'build'], {})
-          .on('error', function () {
-            self.log('\nRunning ' + chalk.yellow('npm run build') + ' for you to build nei mock . If this fails, try running the command yourself.');
-          })
-          .on('exit', function () {
-            self.log('\nRunning ' + chalk.yellow('npm run build') + ' for you to build nei mock . If this fails, try running the command yourself.');
-          });
+        spawn.spawnCommandSync('npm', ['run', 'build'], {})
+        self.log('\nRunning ' + chalk.yellow('npm run build') + ' for you to build nei mock . If this fails, try running the command yourself.');
       } else {
         self.log('\nPlease preinstall NEI Toolkit. Then try running ' + chalk.yellow('npm run build') + ' yourself.')
       }
-
     })
+  }
 
+  end() {
+    // empty
   }
 };
