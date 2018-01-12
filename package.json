@@ -8,16 +8,9 @@
     "email": "itechbirds@gmail.com",
     "url": "https://github.com/techbirds/"
   },
-  "files": [
-    "generators"
-  ],
+  "files": ["generators"],
   "main": "generators/index.js",
-  "keywords": [
-    "nej",
-    "regular",
-    "edu",
-    "yeoman-generator"
-  ],
+  "keywords": ["nej", "regular", "edu", "yeoman-generator"],
   "devDependencies": {
     "coveralls": "^2.13.1",
     "eslint": "^4.1.0",
@@ -38,7 +31,9 @@
     "chalk": "^2.1.0",
     "command-exists": "^1.2.2",
     "yeoman-generator": "^2.0.1",
-    "yosay": "^2.0.1"
+    "yosay": "^2.0.1",
+    "generator-edu-front-base":
+      "git+https://github.com/techbirds/generator-edu-front-base.git"
   },
   "jest": {
     "testEnvironment": "node"
@@ -50,20 +45,11 @@
     "test": "jest"
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.json": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.js": ["eslint --fix", "git add"],
+    "*.json": ["prettier --write", "git add"]
   },
   "eslintConfig": {
-    "extends": [
-      "xo",
-      "prettier"
-    ],
+    "extends": ["xo", "prettier"],
     "env": {
       "jest": true,
       "node": true
@@ -77,9 +63,7 @@
         }
       ]
     },
-    "plugins": [
-      "prettier"
-    ]
+    "plugins": ["prettier"]
   },
   "repository": "techbirds/generator-edu-front-web",
   "license": "MIT"
