@@ -1,5 +1,5 @@
 
-# Edu-Front-Web :dog:
+# Edu-Front-Web [![Build Status][travis-image]][travis-url]
 
 > 基于对云课堂、中国慕课、爱多思以及通用组件池等的前端架构和设计理念的理解和实践希望沉淀出一套足够通用、简约、易于上手的教育前端Web工程脚手架。
 
@@ -61,3 +61,5 @@ npm run deploy
 * [Edu Awesome](https://github.com/techbirds/edu-awesome)
 * [加速electron在国内的下载速度](http://blog.tomyail.com/install-electron-slow-in-china/)
 
+[travis-image]: https://travis-ci.org/techbirds/generator-edu-front-web.svg?branch=master
+[travis-url]: https://travis-ci.org/techbirds/generator-edu-front-web

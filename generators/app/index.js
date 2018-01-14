@@ -1,62 +1,69 @@
-'use strict';
-const Generator = require('yeoman-generator');
-const chalk = require('chalk');
-const yosay = require('yosay');
-const path = require('path');
-const mkdirp = require('mkdirp');
-const spawn = require('yeoman-generator/lib/actions/spawn-command');
-const commandExists = require('command-exists').sync;
+"use strict";
+const Generator = require("yeoman-generator");
+const chalk = require("chalk");
+const yosay = require("yosay");
+const path = require("path");
+const mkdirp = require("mkdirp");
+const spawn = require("yeoman-generator/lib/actions/spawn-command");
+const commandExists = require("command-exists").sync;
 
 module.exports = class extends Generator {
-
   initializing() {
     this.composeWith(
-      require.resolve('generator-edu-front-base/generators/app')
+      require.resolve("generator-edu-front-base/generators/app")
     );
   }
 
   prompting() {
     // Have Yeoman greet the user.
-    this.log(yosay(
-      'Welcome to the stupendous ' + chalk.green('generator-edu-front-web') + ' generator!'
-    ));
+    this.log(
+      yosay(
+        "Welcome to the stupendous " +
+          chalk.green("edu-front-web") +
+          " generator!"
+      )
+    );
 
-    var prompts = [{
-        type: 'input',
-        name: 'projectName',
-        message: 'Please input project name (edu-front-web):',
-        default: 'edu-front-web'
+    var prompts = [
+      {
+        type: "input",
+        name: "projectName",
+        message: "请输入工程名称 (edu-front-web):",
+        default: "edu-front-web"
       },
       {
-        type: 'input',
-        name: 'projectDesc',
-        message: 'Please input project description (A edu front web project):'
+        type: "input",
+        name: "projectDesc",
+        message: "请输入工程描述 (A edu front web project):",
+        default: "A edu front web project"
       },
       {
-        type: 'input',
-        name: 'projectAuthor',
-        message: 'Author (edu):',
-        default: 'edu'
+        type: "input",
+        name: "projectAuthor",
+        message: "作者 (edu):",
+        default: "edu"
       }
     ];
 
-    return this.prompt(prompts).then(function (props) {
-      // To access props later use this.props.someAnswer;
-      this.props = props;
-    }.bind(this));
+    return this.prompt(prompts).then(
+      function(props) {
+        // To access props later use this.props.someAnswer;
+        this.props = props;
+      }.bind(this)
+    );
   }
 
   defaults() {
-
     if (path.basename(this.destinationPath()) !== this.props.projectName) {
       this.log(
-        'Your generator must be inside a folder named ' + this.props.projectName + '\n' +
-        'I\'ll automatically create this folder.'
+        "Your generator must be inside a folder named " +
+          this.props.projectName +
+          "\n" +
+          "I'll automatically create this folder."
       );
       mkdirp(this.props.projectName);
       this.destinationRoot(this.destinationPath(this.props.projectName));
     }
-
   }
 
   writing() {
@@ -74,44 +81,35 @@ module.exports = class extends Generator {
 
   _writingDeploy() {
     this.fs.copy(
-      this.templatePath('./deploy'),
-      this.destinationPath('./deploy')
+      this.templatePath("./deploy"),
+      this.destinationPath("./deploy")
     );
   }
 
   _writingDoc() {
-    this.fs.copy(
-      this.templatePath('./doc'),
-      this.destinationPath('./doc')
-    );
+    this.fs.copy(this.templatePath("./doc"), this.destinationPath("./doc"));
   }
 
   _writingSrc() {
-    this.fs.copy(
-      this.templatePath('./src'),
-      this.destinationPath('./src')
-    );
+    this.fs.copy(this.templatePath("./src"), this.destinationPath("./src"));
   }
 
   _writingTemplate() {
     this.fs.copy(
-      this.templatePath('./template'),
-      this.destinationPath('./template')
+      this.templatePath("./template"),
+      this.destinationPath("./template")
     );
-
   }
 
   _writingTest() {
-    this.fs.copy(
-      this.templatePath('./test'),
-      this.destinationPath('./test')
-    );
+    this.fs.copy(this.templatePath("./test"), this.destinationPath("./test"));
   }
 
   _writingPackageJSON() {
     this.fs.copyTpl(
-      this.templatePath('package.json'),
-      this.destinationPath('package.json'), {
+      this.templatePath("package.json"),
+      this.destinationPath("package.json"),
+      {
         project_name: this.props.projectName,
         project_desc: this.props.projectDesc,
         project_author: this.props.projectAuthor
@@ -121,33 +119,33 @@ module.exports = class extends Generator {
 
   _writingBower() {
     this.fs.copy(
-      this.templatePath('.bowerrc'),
-      this.destinationPath('.bowerrc')
+      this.templatePath(".bowerrc"),
+      this.destinationPath(".bowerrc")
     );
     this.fs.copy(
-      this.templatePath('bower.json'),
-      this.destinationPath('bower.json')
+      this.templatePath("bower.json"),
+      this.destinationPath("bower.json")
     );
   }
 
   _writingNEIConfig() {
     this.fs.copy(
-      this.templatePath('nei.config.js'),
-      this.destinationPath('nei.config.js')
+      this.templatePath("nei.config.js"),
+      this.destinationPath("nei.config.js")
     );
   }
 
   _writingREADME() {
     this.fs.copy(
-      this.templatePath('README.md'),
-      this.destinationPath('README.md')
+      this.templatePath("README.md"),
+      this.destinationPath("README.md")
     );
   }
 
   _writingGulp() {
     this.fs.copy(
-      this.templatePath('gulpfile.js'),
-      this.destinationPath('gulpfile.js')
+      this.templatePath("gulpfile.js"),
+      this.destinationPath("gulpfile.js")
     );
   }
 
@@ -159,19 +157,26 @@ module.exports = class extends Generator {
       yarn: false,
       npm: true,
       bower: true
-    }).then(function () {
-
+    }).then(function() {
       // 检测NEI是否安装
-      if (commandExists('nei')) {
-        spawn.spawnCommandSync('npm', ['run', 'build'], {})
-        self.log('\nRunning ' + chalk.yellow('npm run build') + ' for you to build nei mock . If this fails, try running the command yourself.');
+      if (commandExists("nei")) {
+        spawn.spawnCommandSync("npm", ["run", "build"], {});
+        self.log(
+          "\nRunning " +
+            chalk.yellow("npm run build") +
+            " for you to build nei mock . If this fails, try running the command yourself."
+        );
       } else {
-        self.log('\nPlease preinstall NEI Toolkit. Then try running ' + chalk.yellow('npm run build') + ' yourself.')
+        self.log(
+          "\nPlease preinstall NEI Toolkit. Then try running " +
+            chalk.yellow("npm run build") +
+            " yourself."
+        );
       }
-    })
+    });
   }
 
   end() {
-    // empty
+    // Empty
   }
 };
