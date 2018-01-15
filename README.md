@@ -58,8 +58,8 @@ npm run deploy
 
 ## FAQ
 
-* [Edu Awesome](https://github.com/techbirds/edu-awesome)
-* [加速electron在国内的下载速度](http://blog.tomyail.com/install-electron-slow-in-china/)
+* [加速npm依赖下载速度](https://npm.taobao.org/)
+* [加速electron下载速度](http://blog.tomyail.com/install-electron-slow-in-china/)
 
 [travis-image]: https://travis-ci.org/techbirds/generator-edu-front-web.svg?branch=master
 [travis-url]: https://travis-ci.org/techbirds/generator-edu-front-web
